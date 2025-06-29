@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenangan - Cerita Perjalanan Hidup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 50%, rgba(240, 147, 251, 0.9) 100%);
+        }
+
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-divider {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            height: 1px;
+            margin: 4rem 0;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+
+      <!-- Tombol kontrol audio -->
+    <div class="fixed top-20 right-6 z-50">
+        <button onclick="toggleMusic()" class="bg-pink-500 text-white px-4 py-2 rounded-full hover:scale-105 transition-all" id="music-button">
+            🔇 Play Music
+        </button>
+    </div>
+
+    <!-- Audio player -->
+    <audio id="bg-music" loop>
+        <source src="img/rujinu.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white bg-opacity-80 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <h1 class="text-2xl font-bold text-purple-600">Memories Swet Hero Damkar🦸🏻‍♂️</h1>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-purple-600">Beranda</a>
+                        <a href="#memories" class="text-gray-700 hover:text-purple-600">Kenangan</a>
+                        <a href="#contact" class="text-gray-700 hover:text-purple-600">Kembali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 fade-in">
+                ANNYEONGHASEYO👋🏻
+                <span class="block text-yellow-300">SELAMAT DATANG DI MEMORIES DAMKAR🦸🏻‍♂️</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8 fade-in" style="animation-delay: 0.2s;">
+               나는 당신을 정말 좋아합니다
+            </p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Memories Section -->
+    <section id="memories" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">HAL SEDERHANA TAPI MEMBAHAGIAKAN</h2>
+                <p class="text-xl text-white/80">Ini semua damkar simpan biar bisa kejaga Moment nya😋</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Memory Item 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in">
+                    <img src="img/1.jpg" alt="Kenangan 1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">ROBLOX</h3>
+                        <p class="text-white/70">Yeaayy Mendakiii gunung</p>
+                    </div>
+                </div>
+                <!-- Memory Item 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.2s;">
+                    <img src="img/2.jpg" alt="Kenangan 2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">ROBLOX</h3>
+                        <p class="text-white/70">Mie Ayam 1 Mbak Rima</p>
+                    </div>
+                </div>
+                <!-- Memory Item 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/3.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">ROBLOX</h3>
+                        <p class="text-white/70">Yeaayy Capekkk naiknyaa</p>
+                    </div>
+                </div>
+                <!-- Add more memory items as needed -->
+                 <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/jogging.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Jogging Minggu Pagi</h3>
+                        <p class="text-white/70">Ingat ngga rute yang kita jalanin itu jauh, tapi bikin seneng bangettt</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/bayang.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Bayang Bayang</h3>
+                        <p class="text-white/70">Ini damkar iseng banget ngedesain Min Je jadi bayang bayang</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/pink.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Pulpen Ungu Beli di Momo</h3>
+                        <p class="text-white/70">Sederhana tapi bikin bisa semangat belajar</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/blue.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Pulpen Biru Beli di Momo</h3>
+                        <p class="text-white/70">Damkar Always Blue</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/minje.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Cisss✌🏻️</h3>
+                        <p class="text-white/70">Dulu kata ustadz apapun hal yang di inginkan harus di sholawatin dulu</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/jajan.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Yeayy yeayy</h3>
+                        <p class="text-white/70">MBAK RIMA TERIMA KASIHHHHH</p>
+                    </div>
+                    </div>
+                     <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/Swet Hero.png" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Swet Hero Datang</h3>
+                        <p class="text-white/70">Tetreretetetttt</p>
+                    </div>
+                     </div>
+                     <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/2vs1.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">KU TONJOK KALIAN SEMUA</h3>
+                        <p class="text-white/70">HAHAHAHHAHAHAHA BABAYY</p>
+                         </div>
+                          </div>
+                         <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/game.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">GAME TERSERU</h3>
+                        <p class="text-white/70">HAHAHHAHA MEMBANTAI COWOK COWOK MIN JE</p>
+                    </div>
+                    </div>
+                      <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/fotbar 1.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">FINNALY AKHIRNYA FOTBAR</h3>
+                        <p class="text-white/70">Meskipun Canggung bangettt buat Minta But Gamsahamnidaa ini bikin bahagia banget</p>
+                    </div>
+                    </div>
+                      <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/fotbar 2.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">FOTBAR POSE KE 2</h3>
+                        <p class="text-white/70">KELIATAN BANGET GAK SIH CANGGUNGNYA HEHEHE</p>
+                    </div>
+                    </div>
+                      <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/fotbar 3.jpg" alt="Kenangan 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">FOTBAR GAMBAR KE 3</h3>
+                        <p class="text-white/70">Terimaa Kasih yaaa sudah bisa mewujudkan keinginan kecil...</p>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">YEAYYY SUDAH DI AKHIR</h2>
+            <div class="glass-card rounded-2xl p-8">
+                <p class="text-white/80 text-lg mb-8">
+                    Kembali dulu yaaa Min Je tenangg masih banyak kokk, BTW jangan lupa baca yang paling bawah yaaa😋👳🏽‍♂️
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="beranda.html" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:opacity-80 transition-all duration-300">
+                        Kembali
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/30 py-12 px-4 mt-20">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-white/70">Min Je Kesayangannya Walid👳🏽‍♂️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add visibility class for fade-in animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeIns = document.querySelectorAll('.fade-in');
+            fadeIns.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 200);
+            });
+        });
+         // Toggle music play/pause
+        let isPlaying = false;
+        const music = document.getElementById('bg-music');
+        const musicButton = document.getElementById('music-button');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicButton.innerText = '🔇 Play Music';
+            } else {
+                music.play().then(() => {
+                    musicButton.innerText = '🔊 Pause Music';
+                }).catch((err) => {
+                    alert("Audio tidak bisa diputar: " + err.message);
+                });
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>

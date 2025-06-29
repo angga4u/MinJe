@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Cerita Perjalanan Hidup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 50%, rgba(240, 147, 251, 0.9) 100%);
+        }
+
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-divider {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            height: 1px;
+            margin: 4rem 0;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .slider {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 50%;
+            padding: 0.5rem;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .slider-button.left {
+            left: 10px;
+        }
+
+        .slider-button.right {
+            right: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white bg-opacity-80 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <h1 class="text-2xl font-bold text-purple-600">Swet Hero Damkar🦸🏻‍♂️</h1>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-purple-600">Beranda</a>
+                        <a href="#about" class="text-gray-700 hover:text-purple-600">Tentang</a>
+                        <a href="#gallery" class="text-gray-700 hover:text-purple-600">Galeri</a>
+                        <a href="#testimonials" class="text-gray-700 hover:text-purple-600">Komentar</a>
+                        <a href="#contact" class="text-gray-700 hover:text-purple-600">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 fade-in">
+                ANNYEONGHASEYO👋🏻
+                <span class="block text-yellow-300">Swet Hero Min Je🦸🏻‍♀️</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8 fade-in" style="animation-delay: 0.2s;">
+               나는 당신을 정말 좋아합니다
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in" style="animation-delay: 0.4s;">
+                <button onclick="scrollToSection('gallery')" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-yellow-300 hover:text-purple-700 transition-all duration-300">
+                    Lihat Galeri ✨
+                </button>
+                <button onclick="scrollToSection('about')" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300">
+                    About Min Je 📖
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">ABOUT Min Je</h2>
+            <div class="glass-card rounded-3xl p-8 md:p-12 fade-in">
+                <h3 class="text-2xl font-bold text-white mb-4">JASMINE SHENDY AULIA</h3>
+                <p class="text-white/80 text-lg leading-relaxed mb-6">
+                   Jasmine Shendy Aulia, atau yang sering aku panggil Min Je, adalah sosok yang begitu hangat dan bersahaja. 
+                   Menurutku, dia adalah pribadi yang sangat baik, penuh perhatian, dan selalu rendah hati dalam setiap tindakannya.
+                    Kehadirannya membawa ketenangan, dan sikapnya yang tulus membuat siapa pun merasa nyaman berada di dekatnya.
+                     Min Je bukan hanya sosok yang menyenangkan, tapi juga inspiratif dalam kesederhanaannya. 
+                     Dia selalu bisa membuat hari terasa lebih ringan hanya dengan senyuman dan kata-kata lembutnya.
+                </p>
+                <p class="text-white/80 text-lg leading-relaxed mb-6">
+                   Dasi hanbeon malhalge, na neomu joahae, Min Je.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Galeri Momen</h2>
+                <p class="text-xl text-white/80">Koleksi foto dan momen berharga dalam perjalanan hidup</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in">
+                    <img src="img/awal dari semuanya.jpg" alt="Momen 1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Momen Spesial 1</h3>
+                        <p class="text-white/70">Ingat gak Moment ini? wkwkwk Awal dari semuanya</p>
+                    </div>
+                    </div>
+                <!-- Gallery Item 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.2s;">
+                    <img src="img/bansos.jpg" alt="Momen 2" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Momen Spesial 2</h3>
+                        <p class="text-white/70">Kalau di lihat lihat udah kayak mau nyerahin bansos yaa...</p>
+                    </div>
+                </div>
+                <!-- Gallery Item 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden hover-lift fade-in" style="animation-delay: 0.4s;">
+                    <img src="img/hehehe.jpg" alt="Momen 3" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-white mb-2">Momen Spesial 3</h3>
+                        <p class="text-white/70">Kalau dilihat dari gambar ini paling kelihatan siapa yang paling narsis...</p>
+                    </div>
+                </div>
+                <!-- Add more gallery items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">BTW AHN SUHO ATAU TAEHYUNG??</h2>
+                <p class="text-xl text-white/80">YEAYYYYYY GAMSAHAMNIDAA SUDAH MEMILIH WALID👳🏽‍♂️</p>
+            </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Komentar</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="testimonial-card fade-in">
+                    <p class="text-white/80 mb-4">"Udah Gantengan temen gue daripada payung ehh maksutnya taehyung"</p>
+                    <h4 class="font-bold text-white">- Devan</h4>
+                </div>
+                <div class="testimonial-card fade-in" style="animation-delay: 0.2s;">
+                    <p class="text-white/80 mb-4">"Ngapain nungguin yang koma giliran season 2 malah seuprit masuknya, hadeuhh mending sama yang gagal ketos 2 kali"</p>
+                    <h4 class="font-bold text-white">- Pak Sambo</h4>
+                </div>
+                <div class="testimonial-card fade-in" style="animation-delay: 0.4s;">
+                    <p class="text-white/80 mb-4">"Udah Yee damar, Mbak Rima mau ngestock Cireng Kesukaan Min Je"</p>
+                    <h4 class="font-bold text-white">- Mbak Rima</h4>
+                </div>
+                <div class="testimonial-card fade-in" style="animation-delay: 0.6s;">
+                    <p class="text-white/80 mb-4">"Ini yang bener damar apa damkar yaa??"</p>
+                    <h4 class="font-bold text-white">- Bunda</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Next Yang Mana Nih?</h2>
+            <div class="glass-card rounded-2xl p-8">
+                <p class="text-white/80 text-lg mb-8">
+                    Yang Kanan duluuuu plisssssss!!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:opacity-80 transition-all duration-300">
+                        Yakin Mau Lanjut?? Jinjaa Malu
+                    </a>
+                    <a href="memories.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300">
+                        Memories
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/30 py-12 px-4 mt-20">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-white/70">Min Je Kesayangan Pak Je👨🏾‍🦱</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function nextSlide() {
+            const slides = document.querySelectorAll('.slider-container img');
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            const slides = document.querySelectorAll('.slider-container img');
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const sliderContainer = document.getElementById('sliderContainer');
+            const slideWidth = sliderContainer.clientWidth;
+            sliderContainer.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+        }
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add visibility class for fade-in animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeIns = document.querySelectorAll('.fade-in');
+            fadeIns.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>

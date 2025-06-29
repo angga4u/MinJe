@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untukmu ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        .floating-delayed {
+            animation: floating 3s ease-in-out infinite 1.5s;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-heart {
+            animation: pulse-heart 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-heart {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #f093fb;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #f093fb }
+        }
+        
+        .slide-in {
+            animation: slideIn 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hearts-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(240, 147, 251, 0.3);
+            animation: fall 10s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        .glass-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .button-glow {
+            box-shadow: 0 0 20px rgba(240, 147, 251, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .button-glow:hover {
+            box-shadow: 0 0 30px rgba(240, 147, 251, 0.8);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen overflow-x-hidden">
+    <!-- Tombol kontrol audio -->
+    <div class="fixed top-6 right-6 z-50">
+        <button onclick="toggleMusic()" class="bg-pink-500 text-white px-4 py-2 rounded-full hover:scale-105 transition-all" id="music-button">
+            🔇 Play Music
+        </button>
+    </div>
+
+    <!-- Audio player -->
+    <audio id="bg-music" loop>
+        <source src="img/audo.mp3" type="audio/mpeg">
+        Browser kamu tidak mendukung audio.
+    </audio>
+
+    <!-- Falling Hearts Background -->
+    <div class="hearts-bg" id="hearts-container"></div>
+    
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center px-4 relative">
+        <div class="text-center max-w-4xl mx-auto">
+            <!-- Floating Hearts -->
+            <div class="floating text-6xl absolute -top-10 -left-10 md:-left-20">💖</div>
+            <div class="floating-delayed text-4xl absolute -top-5 -right-10 md:-right-20">💕</div>
+            
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 typewriter">
+                JASMINE SHENDY AULIA
+            </h1>
+            
+            <div class="slide-in" style="animation-delay: 3s;">
+                <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                    Jigeum uri gamjeong-eun gat-eulkkayo?
+                    (Apakah perasaan kita sama sekarang ini?)
+                </p>
+                
+                <div class="pulse-heart text-8xl mb-8">
+                    😢😰
+                </div>
+                
+                <button onclick="goToConfessionPage()" class="button-glow bg-gradient-to-r from-pink-500 to-red-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover-scale cursor-pointer border-none">
+                    Jinjaaa kalau ngga yakin jangan di klik😥
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Confession Section -->
+    <section id="confession" class="min-h-screen flex items-center justify-center px-4 py-16 hidden">
+        <div class="max-w-3xl mx-auto text-center">
+            <!-- Back Button -->
+            <div class="absolute top-8 left-8">
+                <a href="beranda.html" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:opacity-80 transition-all duration-300">
+                    Kembali
+                </a>
+            </div>
+            
+            <div class="glass-card rounded-3xl p-8 md:p-12 hover-scale">
+                <div class="text-6xl mb-6">💝</div>
+                
+                <h2 class="text-3xl md:text-4xl font-bold gradient-text mb-8">
+                    나 너무 좋아해
+                    Na neomu joahae
+                </h2>
+                
+                <div class="space-y-6 text-white text-lg md:text-xl leading-relaxed">
+                    <p class="fade-in-text">
+                      나도 감정을 가진 인간이야. 내가 너에게 감정이 있는 것이 잘못된 걸까?
+                    </p>
+                    
+                    <p class="fade-in-text" style="animation-delay: 1s;">
+                        Nado gamjeong-eul gajin ingan-iya. Naega nege gamjeongi inneun geos-i jalmotdoen geolkka?
+                    </p>
+                    
+                    <p class="fade-in-text" style="animation-delay: 2s;">
+                       Aku juga manusia yang punya perasaan. Salahkah jika aku ada perasaan?😄 Karena sebenarnya damar sudah menyimpan
+                       dari cukup lama dan mungkin hari ini waktu yang pas untuk memberanikan diri dari sebelumnya yang hanya menyimpan,
+                       dan mengingat beberapa hari kedepan kita pergi PKL yang belum tentu bisa bertemu di setiap harinya...😄😄
+                    </p>
+                    
+                    <div class="text-2xl md:text-3xl font-bold gradient-text fade-in-text" style="animation-delay: 3s;">
+                        Min Je, naneun neoreul joahae...
+                    </div>
+                    
+                    <p class="fade-in-text" style="animation-delay: 4s;">
+                       I Really Like You...
+                    </p>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-12 fade-in-text" style="animation-delay: 5s;">
+                    <button onclick="showResponse('yes')" class="button-glow bg-gradient-to-r from-green-400 to-green-600 text-white px-8 py-3 rounded-full font-semibold hover-scale cursor-pointer border-none">
+                        Nee 🩵
+                    </button>
+                    <button onclick="showResponse('maybe')" class="button-glow bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-8 py-3 rounded-full font-semibold hover-scale cursor-pointer border-none">
+                        Aniyo ❌
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Response Section -->
+    <section id="response" class="min-h-screen flex items-center justify-center px-4 py-16 hidden">
+        <div class="max-w-2xl mx-auto text-center">
+            <div class="glass-card rounded-3xl p-8 md:p-12">
+                <div id="response-content"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center py-8 text-white/70">
+        <p>Kalau Sama Berarti Kesayangannya...</p>
+    </footer>
+
+    <script>
+        // Create falling hearts
+        function createFallingHearts() {
+            const container = document.getElementById('hearts-container');
+            const hearts = ['💖', '💕', '💗', '💝', '💘', '💞'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 7) + 's';
+                heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                
+                container.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 10000);
+            }, 300);
+        }
+        
+        // Navigate to confession page
+        function goToConfessionPage() {
+            // Add fade out animation to current page
+            document.body.style.transition = 'all 0.8s ease-out';
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                // Hide hero section and show confession section
+                document.querySelector('section:first-of-type').style.display = 'none';
+                document.getElementById('confession').classList.remove('hidden');
+                document.getElementById('confession').style.display = 'flex';
+                
+                // Scroll to top for better UX
+                window.scrollTo(0, 0);
+                
+                // Fade in the new page
+                document.body.style.opacity = '1';
+                document.body.style.transform = 'scale(1)';
+                
+                // Change page title
+                document.title = 'Pesan Khusus Untukmu 💕';
+                
+                // Update URL without refresh (optional)
+                if (history.pushState) {
+                    history.pushState(null, null, '#confession');
+                }
+            }, 800);
+        }
+        
+        // Show response based on user choice
+        function showResponse(choice) {
+            const responseSection = document.getElementById('response');
+            const responseContent = document.getElementById('response-content');
+            
+            // Add fade transition
+            document.body.style.transition = 'all 0.8s ease-out';
+            document.body.style.opacity = '0';
+            
+            setTimeout(() => {
+                // Hide confession section
+                document.getElementById('confession').style.display = 'none';
+                
+                if (choice === 'yes') {
+                    responseContent.innerHTML = `
+                        <div class="absolute top-8 left-8">
+                            <button onclick="goBack('confession')" class="glass-card text-white px-6 py-3 rounded-full hover-scale cursor-pointer border-none">
+                                ← Kembali
+                            </button>
+                        </div>
+                        <div class="text-6xl mb-6">🎉</div>
+                        <h3 class="text-3xl font-bold gradient-text mb-6">JINJJAAAAA??!!!😲😨</h3>
+                        <p class="text-white text-xl mb-6">
+                           DEMII APAA SAMAAA PERASAANNYAAA??!!!! YEAYYYY GAMSAHAMNIDAAAAA🩵🩵🩵
+                        </p>
+                        <div class="text-4xl">💕💖💕</div>
+                    `;
+                } else if (choice === 'maybe') {
+                    responseContent.innerHTML = `
+                        <div class="absolute top-8 left-8">
+                            <button onclick="goBack('confession')" class="glass-card text-white px-6 py-3 rounded-full hover-scale cursor-pointer border-none">
+                                ← Kembali
+                            </button>
+                        </div>
+                        <div class="text-6xl mb-6">⏰</div>
+                        <h3 class="text-3xl font-bold gradient-text mb-6">Gwencanaaa</h3>
+                        <p class="text-white text-xl mb-6">
+                            Gapapaaa, Mungkin emang sudah yang terbaik, Thankk You Min Je
+                        </p>
+                        <div class="text-4xl">🤗💛🤗</div>
+                    `;
+                }
+                
+                responseSection.classList.remove('hidden');
+                responseSection.style.display = 'flex';
+                window.scrollTo(0, 0);
+                
+                // Fade in
+                document.body.style.opacity = '1';
+                
+                // Update title and URL
+                document.title = choice === 'yes' ? 'Terima Kasih Sayang! 💕' : 'Aku Akan Menunggu 💛';
+                if (history.pushState) {
+                    history.pushState(null, null, '#response-' + choice);
+                }
+            }, 800);
+        }
+        
+        // Go back function
+        function goBack(target = 'home') {
+            document.body.style.transition = 'all 0.8s ease-out';
+            document.body.style.opacity = '0';
+            
+            setTimeout(() => {
+                if (target === 'home') {
+                    // Back to home page
+                    document.querySelector('section:first-of-type').style.display = 'flex';
+                    document.getElementById('confession').style.display = 'none';
+                    document.getElementById('response').style.display = 'none';
+                    document.getElementById('confession').classList.add('hidden');
+                    document.getElementById('response').classList.add('hidden');
+                    document.title = 'Untukmu ❤️';
+                    if (history.pushState) {
+                        history.pushState(null, null, '/');
+                    }
+                } else if (target === 'confession') {
+                    // Back to confession page
+                    document.getElementById('confession').style.display = 'flex';
+                    document.getElementById('response').style.display = 'none';
+                    document.getElementById('response').classList.add('hidden');
+                    document.title = 'Pesan Khusus Untukmu 💕';
+                    if (history.pushState) {
+                        history.pushState(null, null, '#confession');
+                    }
+                }
+                
+                window.scrollTo(0, 0);
+                document.body.style.opacity = '1';
+            }, 800);
+        }
+        
+        // Add fade-in animation to texts
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            createFallingHearts();
+            
+            // Add fade-in class to elements
+            const fadeElements = document.querySelectorAll('.fade-in-text');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.8s ease';
+                observer.observe(el);
+            });
+        });
+        
+        // Toggle music play/pause
+        let isPlaying = false;
+        const music = document.getElementById('bg-music');
+        const musicButton = document.getElementById('music-button');
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicButton.innerText = '🔇 Play Music';
+            } else {
+                music.play().then(() => {
+                    musicButton.innerText = '🔊 Pause Music';
+                }).catch((err) => {
+                    alert("Audio tidak bisa diputar: " + err.message);
+                });
+            }
+            isPlaying = !isPlaying;
+        }
+    </script>
+</body>
+</html>
