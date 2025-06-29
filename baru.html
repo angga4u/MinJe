@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi & Kegiatan - Kenangan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 50%, rgba(240, 147, 251, 0.9) 100%);
+        }
+
+        .glass-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-divider {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            height: 1px;
+            margin: 4rem 0;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white bg-opacity-80 backdrop-blur-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <h1 class="text-2xl font-bold text-purple-600">Memories Swet Hero Damkar🦸🏻‍♂️</h1>
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-8">
+                        <a href="#home" class="text-gray-700 hover:text-purple-600">Beranda</a>
+                        <a href="#memories" class="text-gray-700 hover:text-purple-600">Kenangan</a>
+                        <a href="#info" class="text-gray-700 hover:text-purple-600">Informasi & Kegiatan</a>
+                        <a href="#contact" class="text-gray-700 hover:text-purple-600">Kembali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                INFORMASI & KEGIATAN
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8">
+                Temukan informasi penting dan kegiatan seru di sini!
+            </p>
+            <a href="#info" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:opacity-80 transition-all duration-300">
+                Lihat Selengkapnya
+            </a>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Informasi & Kegiatan Section -->
+    <section id="info" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">FAQ, Acara, Cerita Pengguna, dan Kegiatan</h2>
+                <p class="text-xl text-white/80">Semua yang perlu Anda ketahui dalam satu halaman!</p>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold text-white mb-4">Pertanyaan yang Sering Diajukan (FAQ)</h3>
+                <div class="glass-card p-6">
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/question-mark.png" class="icon mr-2" alt="FAQ Icon"/>
+                            <h4 class="font-bold text-white">1. Apa itu Memories Swet Hero Damkar?</h4>
+                        </div>
+                        <p class="text-white/70">Ini adalah platform untuk menyimpan dan berbagi kenangan indah bersama teman-teman.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/question-mark.png" class="icon mr-2" alt="FAQ Icon"/>
+                            <h4 class="font-bold text-white">2. Bagaimana cara berpartisipasi dalam kegiatan?</h4>
+                        </div>
+                        <p class="text-white/70">Anda dapat mendaftar melalui halaman acara yang akan kami umumkan di sini.</p>
+                    </div>
+                    <div class="mb-4">
+                        <div class="flex items-center">
+                            <img src="https://img.icons8.com/ios-filled/50/ffffff/question-mark.png" class="icon mr-2" alt="FAQ Icon"/>
+                            <h4 class="font-bold text-white">3. Apakah ada biaya untuk bergabung?</h4>
+                        </div>
+                        <p class="text-white/70">Tidak, semua kegiatan kami gratis untuk diikuti!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Section -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold text-white mb-4">Acara Mendatang</h3>
+                <div class="glass-card p-6">
+                    <ul class="list-disc list-inside text-white/70">
+                        <li><strong>Jogging Bersama:</strong> Setiap Minggu Pagi, mulai pukul 07:00. Tempat: Taman Kota.</li>
+                        <li><strong>Game Night:</strong> Setiap Jumat Malam, mulai pukul 19:00. Tempat: Rumah Walid.</li>
+                        <li><strong>Workshop Kreatif:</strong> Setiap Bulan, tanggal 15. Tempat: Studio Seni.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- User Stories Section -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-semibold text-white mb-4">Cerita Pengguna</h3>
+                <div class="glass-card p-6">
+                    <p class="text-white/70 mb-4">"Saya sangat senang bisa bergabung dengan Memories Swet Hero Damkar. Setiap kegiatan selalu menyenangkan dan penuh kenangan!" - <em>Rina</em></p>
+                    <p class="text-white/70 mb-4">"Kegiatan jogging bersama sangat menyegarkan! Saya merasa lebih dekat dengan teman-teman." - <em>Andi</em></p>
+                    <p class="text-white/70">"Workshop kreatif memberikan saya banyak inspirasi. Saya tidak sabar untuk yang berikutnya!" - <em>Min Je</em></p>
+                </div>
+            </div>
+
+            <!-- Activities Section -->
+            <div>
+                <h3 class="text-3xl font-semibold text-white mb-4">Kegiatan Seru yang Bisa Diikuti</h3>
+                <div class="glass-card p-6">
+                    <ul class="list-disc list-inside text-white/70">
+                        <li>Hiking di Gunung Bromo</li>
+                        <li>Camping di Pantai</li>
+                        <li>Turnamen Game Online</li>
+                        <li>Workshop Memasak</li>
+                        <li>Pelatihan Fotografi</li>
+                    </ul>
+                    <p class="mt-4">Bergabunglah dengan kami untuk pengalaman yang tak terlupakan!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">Hubungi Kami</h2>
+            <div class="glass-card rounded-2xl p-8">
+                <p class="text-white/80 text-lg mb-8">
+                    Jika Anda memiliki pertanyaan lebih lanjut, jangan ragu untuk menghubungi kami!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:info@memoriesswethero.com" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold hover:opacity-80 transition-all duration-300">
+                        Kirim Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black/30 py-12 px-4 mt-20">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-white/70">Min Je Kesayangannya Walid👳🏽‍♂️</p>
+        </div>
+    </footer>
+
+</body>
+</html>
